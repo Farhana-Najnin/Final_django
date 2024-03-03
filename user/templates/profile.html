@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Course Title</th>
+        <th scope="col">Date</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+        <!-- {% for i in enroll1 %}
+        <tr>
+          
+          <td>{{i.course.name}}</td>
+          <td>{{i.enroll_date}}</td> 
+        </tr>
+        {% endfor %} -->
+     
+        {% for i in Enroll %}
+        <tr>        
+          <td>{{i.course.name}}</td>
+          <td>{{i.enroll_date}}</td> 
+        </tr>
+        {% endfor %}
+       
+      </tbody>
+  </table>
+
+{% endblock %}
+
+
+
+

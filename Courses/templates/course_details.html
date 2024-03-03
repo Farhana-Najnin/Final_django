@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="col-12">
+    <div class="card " style="background-color: #E0C6CB;">
+        <div class="card-body rounded mt-3 ">
+            <img src="{{object.image.url}}" class="card-img-top rounded w-75" alt="book">
+            <div class="card-body" style="background-color: darkgray; margin-top: 5px;">
+                <h3 class="card-title">{{object.name}}</h3>
+                <h6>credit: 3</h6> 
+              
+              <p class="card-text">Category: {{object.category}}</p>
+              <p class="card-text">Description : {{object.description}}</p>
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="card-body">
+              <a class="card-link btn btn-warning text-decoration-none" href="{% url 'enroll' object.id %}">Enroll</a>
+            </div>
+            {% endif %}
+          </div>
+    </div>
+</div>
+
+<!-- <div class="card m-2">
+    <h5 class="p-3">Total Review : {{comments | length}}</h5>
+    {% for cmt in comments %}
+    <div class="card-body border m-2">
+        <p><b>{{cmt.name}}</b>{{cmt.created_on}}</p>
+        <p>{{cmt.body}}</p> 
+    </div>
+    {%endfor%}
+</div> -->
+
+<!-- <div class="card m-2 " style="background-color: rgb(206, 227, 241);">
+    <div class="card_body m-3 w-75 ">
+        <form method="post" class="">
+            {% csrf_token %}
+            {{comment_form | crispy}}
+            <button class="btn btn-success" type="submit">submit</button>
+        </form>
+    </div>
+</div> -->
+
+{% endblock %}
