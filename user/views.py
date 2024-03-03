@@ -136,13 +136,17 @@ class LoginFormView(LoginView):
             return render(request,self.template_name,{'form':LoginForm})   
 
 
-class LogoutFormView(LogoutView):
-    def get_success_url(self):
-        if self.request.user.is_authenticated:
-            logout(self.request)
-        return reverse_lazy('home_page')
+# class LogoutFormView(LogoutView):
+#     def get_success_url(self):
+#         if self.request.user.is_authenticated:
+#             logout(self.request)
+#         return reverse_lazy('home_page')
         
     
+def LogoutFormView(request):
+    if request.user.is_authenticated:
+        logout(request)
+    return redirect(reverse_lazy('home_page'))
 
 def ProfileView(request,category_slug = None):
     data = courses.objects.all()
