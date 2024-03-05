@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .contact-form {
+            margin-top: 50px;
+        }
+        .contact-form .form-control {
+            border-radius: 0;
+        }
+        .contact-form textarea.form-control {
+            resize: none;
+            height: 150px;
+        }
+        .contact-form .btn-primary {
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+       
+<div class="" style="background-color: rgb(196, 200, 242);">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+       <div class="container-fluid bg-body-secondary ">
+         <!-- <img src="./static/logo.jpg" alt="logo"/> -->
+         <a class="navbar-brand fw-bolder mx-4 text-danger" href="{% url 'home_page' %}">ECourse</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+           <div class="navbar-nav">
+             
+             <a class="nav-link" href="{% url 'home_page' %}">Home</a>
+             <a class="nav-link active" href="{% url 'showcourses' %}">courses</a>
+             {% if request.user.is_authenticated %}
+             
+               
+               <a class="nav-link active" href="{% url 'profile' %}">Profile</a>
+             
+             
+               <a class="nav-link active" href="{% url 'logout' %}" tabindex="-1" aria-disabled="true">logout</a>
+               <a class="nav-link active" href="{% url 'password_change_page' %}" tabindex="-1" aria-disabled="true">Change Password</a>
+                   
+             
+             {% else %}
+             
+               
+               <a class="nav-link active" href="{% url 'login' %}">login</a>
+             
+             
+               <a class="nav-link active" href="{% url 'signUp' %}" tabindex="-1" aria-disabled="true">Sign Up</a>
+             </li>
+             {% endif %}   
+             <a class="nav-link active" href="{% url 'contactus' %}">Contact us</a>
+           </div>
+         </div>
+       </div>
+     </nav> 
+   </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 contact-form">
+                <h2 class="text-center mb-4">Contact Us</h2>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block text-primary "><a  href="contactus">Submit</a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% include 'footer.html' %}
+</body>
+</html>

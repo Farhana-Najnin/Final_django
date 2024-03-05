@@ -1,11 +1,78 @@
-<footer class="footer bg-blue-900 text-white relative border-b-2 mt-10">
-    <div class="container mx-auto px-6">
-        <div class="mt-5 flex flex-col items-center">
-            <div class="sm:w-2/3 text-center py-0 pb-2">
-                <p class="text-md text-white font-bold mb-2">
-                    © {% now "Y" %} Modified by Learnify
-                </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Footer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            width: 100%;
+        }
+        .footer p {
+            margin-bottom: 20px;
+        }
+        .footer .column {
+            padding: 0 15px;
+        }
+        .footer .column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer .column ul li {
+            margin-bottom: 10px;
+        }
+        .footer .column h4 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Your content goes here -->
+
+    <footer class="footer mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 column">
+                    <h4>About Us</h4>
+                    <p>Lorem Ipsum is simply is dumiomy is text Lorem Ipsum is simply.</p>
+                    <p>
+                        1247/Plot No. 39, 15th Phase, <br>
+                        LHB Colony, Kanpur <br>
+                        +1 (444) 000-8888 <br>
+                        info@example.com
+                    </p>
+                </div>
+                <div class="col-md-4 column">
+                    <h4>Our Links</h4>
+                    <ul>
+                        <li><a href="{% url 'home_page' %}">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="{% url 'showcourses' %}">Courses</a></li>
+                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Edu Smart</li>
+                        <li>Learn Well</li>
+                        <li>Knowledge Hub</li>
+                        <li>Skill Master</li>
+                        <li>Knowledge Plus</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
