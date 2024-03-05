@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 def Contactus(request):
     data = courses.objects.all()
     courseCategory = Categori.objects.all()
-    return render(request, 'contactus.html')
+    return render(request, 'contactUs.html')
 def Aboutus(request):
     data = courses.objects.all()
     courseCategory = Categori.objects.all()
