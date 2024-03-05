@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content%}
 {% load crispy_forms_tags%}
+
+<div style="margin-bottom: 30px;">
+<div class="d-flex">
+        <div class="col-6">
+            <img style="width: 100%; height: 100%;" class="rounded" src="{% static 'signup1.png' %}" alt="banner image">
+        </div>
+   
 <form method="post" class="w-50 m-auto">
     
     {% csrf_token %}
@@ -13,5 +20,6 @@
     {% endfor %}
     <button type="submit" class="btn btn-danger">submit</button>
 </form>
-
+</div>
+</div>
 {% endblock %}

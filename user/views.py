@@ -181,3 +181,18 @@ class PasswordUpdateView(View):
             return render(request, self.template_name,{'form': form})
         else:
             return redirect('login')
+        
+# def returnBook(request, id):
+#     borrow = get_object_or_404(Borrow, pk=id)
+#     book = borrow.book
+#     user_profile = UserBankAccount.objects.get_or_create(user=request.user)[0]
+#     if borrow.user == request.user:
+#         borrow.delete() 
+#         book.quantity += 1
+#         book.save()
+#         user_profile.balance += book.price 
+#         user_profile.save()
+#         messages.success(request, 'You have returned the book successfully!!!')
+#     else:
+#         messages.error(request, 'You arenot authorize for return book')
+#     return redirect('profile')

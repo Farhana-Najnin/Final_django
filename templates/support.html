@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %} 
+<div class="d-flex">
+    <div class="col-6">
+        <img style="width: 90%;" class="rounded " src="{% static 'support1.jpg' %}" alt="banner image">
+    </div>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">24/7 Support</h1>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <p>Get assistance anytime, anywhere with our dedicated support team.</p>
+                <p>Our support team is available 24/7 to help you with any questions or issues you may have.</p>
+                <p>Contact us via email, phone, or live chat for prompt and reliable support. We understand the importance of providing excellent customer service, and we strive to exceed your expectations with every interaction.</p>
+                <a href="{% url 'contactus' %}" class="btn btn-primary">contact us</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Content -->
+{% endblock %}

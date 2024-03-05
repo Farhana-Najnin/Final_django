@@ -8,6 +8,18 @@ def Contactus(request):
     data = courses.objects.all()
     courseCategory = Categori.objects.all()
     return render(request, 'contactUs.html')
+def Service(request):
+    data = courses.objects.all()
+    courseCategory = Categori.objects.all()
+    return render(request, 'service.html')
+def Certification1(request):
+    data = courses.objects.all()
+    courseCategory = Categori.objects.all()
+    return render(request, 'certification.html')
+def support1(request):
+    data = courses.objects.all()
+    courseCategory = Categori.objects.all()
+    return render(request, 'support.html')
 def Aboutus(request):
     data = courses.objects.all()
     courseCategory = Categori.objects.all()

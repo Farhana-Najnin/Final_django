@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-       
+  
 <div class="" style="background-color: rgb(196, 200, 242);">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
        <div class="container-fluid bg-body-secondary ">
@@ -60,14 +60,17 @@
                <a class="nav-link active" href="{% url 'signUp' %}" tabindex="-1" aria-disabled="true">Sign Up</a>
              </li>
              {% endif %}   
+             <a class="nav-link active" href="{% url 'aboutus' %}">About us</a>
+             <a class="nav-link active" href="{% url 'service' %}">Service</a>
              <a class="nav-link active" href="{% url 'contactus' %}">Contact us</a>
+             
            </div>
          </div>
        </div>
      </nav> 
    </div>
 
-    <div class="container">
+    <div class="container"  style="margin-bottom: 30px;">
         <div class="row">
             <div class="col-md-6 offset-md-3 contact-form">
                 <h2 class="text-center mb-4">Contact Us</h2>

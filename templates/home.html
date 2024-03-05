@@ -48,17 +48,17 @@
     </div>
 </div>
 {% if request.user.is_authenticated %}
-<div class="pt-4">
+<div class="pt-4"  style="background-color: antiquewhite;">
     <h3 class="text-center fw-bolder"> You are verified user ,now you can enroll in courses</h3>
   
 </div>
 {% else %}
-<div class="pt-2">
+<div class="pt-2"  style="background-color: antiquewhite;">
     
     <h2 class="text-center">You need to login first to enroll in courses</h2>
 </div>
 {% endif %}
-<div class="h-50 d-flex flex-wrap px-3 pt-5" style=" background: rgb(89, 92, 102);">
+<div class="h-50 d-flex flex-wrap px-3 pt-5" style=" background: rgb(249, 239, 241);">
     {% for i in data %}
     <div class="col-sm-4 mt-2 mb-4 h-50">
         <div class="card mx-2">
