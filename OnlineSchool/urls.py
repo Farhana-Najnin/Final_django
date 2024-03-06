@@ -29,7 +29,7 @@ urlpatterns = [
     path('certificate/', views.Certification1, name='certificate'),
     path('support/', views.support1, name='support'),
     
-    path('categories/<slug:category_slug>/', views.home, name='category'),
+    path('categories/<slug:category_slug>/', views.showCourses, name='category'),
     path('course_category/',include('Category.urls')),
     path('user/',include('user.urls')),
 

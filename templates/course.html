@@ -2,46 +2,52 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %} 
+
 <div class="" style="background-color: #E0C6CB;">
-   
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center mt-5"> <!-- Center align the text and add margin top -->
+            <h3>Select Course by Category</h3>
+          </div>
+        </div>
+      </div>
     <div class="d-flex flex-wrap justify-content-center mx-2" style="background-color: rgb(239, 209, 238);"> 
         {% for i in course_category %}  
-            <div class="form-check mb-4" style=" padding: 10px;">
+            <div class="form-check mb-4" style="padding: 10px;">
                 <a class="btn pt-10" style="background-color:rgb(232, 78, 106); padding: 10px;"href="{%url 'category' i.slug %}" class="text-decoration-none">{{i.category_name}}</a> 
             </div>
         {% endfor %}
     </div>
 </div>
 {% if request.user.is_authenticated %}
-<div class="pt-4">
-    <h3 class="text-center fw-bolder"> You are a verified user, now you can enroll in courses</h3>
+<div class="pt-4"  style="background-color: antiquewhite;">
+    <h3 class="text-center fw-bolder"> You are verified user ,now you can enroll in courses</h3>
   
 </div>
 {% else %}
-<div class="pt-2">
+<div class="pt-2"  style="background-color: antiquewhite;">
     
     <h2 class="text-center">You need to login first to enroll in courses</h2>
 </div>
 {% endif %}
-<div class="h-100 d-flex flex-wrap px-3 pt-5">
+<div class="h-50 d-flex flex-wrap px-3 pt-5" style=" background: rgb(249, 239, 241);">
     {% for i in data %}
-    <div class="col-sm-4 mt-2 mb-4 h-100">
+    <div class="col-sm-4 mt-2 mb-4 h-50">
         <div class="card mx-2">
             <div style="background-color: #E0C6CB;" class="card-body rounded h-50">
                 
-                <img src="{{i.image.url}}" class="card-img-top rounded img-fluid" alt="course"> <!-- Added 'img-fluid' class for responsiveness -->
+                <img src="{{i.image.url}}" class="card-img-top rounded" alt="course">
                 
                 <div class="card-body">
                     <h3 class="card-title"><a class="text-decoration-none text-danger"  href="{% url 'course_details' i.id %}">{{i.name}}</a></h3>
                   
                    
                    <p class="card-text">Category: {{i.category}}</p>
-                   <p class="card-text">Description: {{i.description | truncatewords:5}}</p>
+                   <p class="card-text">Description : {{i.description | truncatewords:5}}</p>
                 </div> 
             </div>
         </div>
     </div>
     {% endfor %}
-    </div>
 
 {% endblock %}
