@@ -1,78 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Footer</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px 0;
-            width: 100%;
-        }
-        .footer p {
-            margin-bottom: 20px;
-        }
-        .footer .column {
-            padding: 0 15px;
-        }
-        .footer .column ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .footer .column ul li {
-            margin-bottom: 10px;
-        }
-        .footer .column h4 {
-            color: #fff;
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Your content goes here -->
-
-    <footer class="footer mt-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 column">
-                    <h4>About Us</h4>
-                    <p>Lorem Ipsum is simply is dumiomy is text Lorem Ipsum is simply.</p>
-                    <p>
-                        1247/Plot No. 39, 15th Phase, <br>
-                        LHB Colony, Kanpur <br>
-                        +1 (444) 000-8888 <br>
-                        info@example.com
-                    </p>
+ <!-- footer section start -->
+ <div class="footer_section layout_padding">
+    <div class="container">
+       <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+       <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
+       <div class="footer_section_2">
+          <div class="row">
+             <div class="col-lg-3 margin_top">
+                <div class="call_text"><a href="#"><img src="/static/images/call-icon1.png"><span class="padding_left_15">Call Now +01 9876543210</span></a></div>
+                <div class="call_text"><a href="#"><img src="/static/images/mail-icon1.png"><span class="padding_left_15">demo@gmail.com</span></a></div>
+             </div>
+             <div class="col-lg-3">
+                <div class="information_main">
+                   <h4 class="information_text">Information</h4>
+                   <p class="many_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
                 </div>
-                <div class="col-md-4 column">
-                    <h4>Our Links</h4>
-                    <ul>
-                        <li><a href="{% url 'home_page' %}">Home</a></li>
-                        <li><a href="{% url 'aboutus' %}">About</a></li>
-                        <li><a href="{% url 'showcourses' %}">Courses</a></li>
-                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
-                    </ul>
+             </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="information_main">
+                   <h4 class="information_text">Helpful Links</h4>
+                   <div class="footer_menu">
+                      <ul>
+                         <li><a href="{% url 'home_page' %}">Home</a></li>
+                         <li><a href="{% url 'aboutus' %}">About</a></li>
+                         <li><a href="{% url 'service' %}">Services</a></li>
+                         <li><a href="{% url 'blog' %}">Blog</a></li>
+                         <li><a href="news.html">News</a></li>
+                      </ul>
+                   </div>
                 </div>
-                <div class="col-md-4 column">
-                    <h4>Services</h4>
-                    <ul>
-                        <li>Edu Smart</li>
-                        <li>Learn Well</li>
-                        <li>Knowledge Hub</li>
-                        <li>Skill Master</li>
-                        <li>Knowledge Plus</li>
-                    </ul>
+             </div>
+             <div class="col-lg-3">
+                <div class="information_main">
+                   <div class="footer_logo"><a href="index.html"><img src="/static/images/footer-logo.png"></a></div>
                 </div>
-            </div>
-        </div>
-    </footer>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- footer section end -->
+ <!-- copyright section start -->
+ <div class="copyright_section">
+    <div class="container">
+       <p class="copyright_text">© 2020 All Rights Reserved. <a href="#">Farhana Najnin Mahi</a></p>
+    </div>
+ </div>
+ <!-- copyright section end -->
+ 
 
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
