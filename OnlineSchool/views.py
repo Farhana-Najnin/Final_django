@@ -24,13 +24,19 @@ def support1(request):
     data = courses.objects.all()
     courseCategory = Categori.objects.all()
     return render(request, 'support.html')
-def Aboutus(request):
+def Aboutus(request,category_slug=None):
     data = courses.objects.all()
     courseCategory = Categori.objects.all()
-    return render(request, 'about.html')
+    if category_slug is not None:
+        category = Categori.objects.get(slug = category_slug)
+        data = courses.objects.filter(category = category)
+
+    return render(request, 'about.html', {'data': data, 'course_category': courseCategory})
+   
 def Blog(request):
     data = courses.objects.all()
     courseCategory = Categori.objects.all()
+    
     return render(request, 'blog.html')
 
 def home(request, category_slug = None):

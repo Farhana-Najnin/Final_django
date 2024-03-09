@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Casinal</title>
+      <title>ECourse</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -34,11 +34,18 @@
       <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
+   <style>
+      .header_sec {
+      font-size: 30px; /* Adjust font size for the logo */
+      }
+   </style>
    <body>
       <!--header section start -->
       
+      
+            <div class="container">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <a class="logo" href="{% url 'home_page' %}"><img src="/static/images/logo.png"></a>
+                  <a class=".header_sec" href="{% url 'home_page' %}">ECourse</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -95,7 +102,7 @@
                      </div> -->
                   </div>
                </nav>
-            
+            </div>
     {% block content %} 
     
     {% endblock %}
@@ -112,5 +119,4 @@
     <script src="/static/js/owl.carousel.js"></script>
     <script src="/static/https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
  </body>
-</html></body>
 </html>

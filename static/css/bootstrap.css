@@ -4792,13 +4792,13 @@ input[type="button"].btn-block {
 
 .badge-warning {
   color: #212529;
-  background-color: #ffc107;
+  background-color: #070fff;
 }
 
 .badge-warning[href]:hover, .badge-warning[href]:focus {
   color: #212529;
   text-decoration: none;
-  background-color: #d39e00;
+  background-color: #0000d3;
 }
 
 .badge-danger {

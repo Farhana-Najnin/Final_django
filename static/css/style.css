@@ -168,6 +168,8 @@ img {
     outline: 0;
 }
 
+
+
 .paddind_bottom_0 {
     padding-bottom: 0 !important;
 }
@@ -265,12 +267,12 @@ button {
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
-    color: #eec53d;
+    color: #422ff3;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #eec53d;
+    color: #422ff3;
 }
 
 .call_section {
@@ -363,11 +365,11 @@ button {
 
 .about_bt a:hover {
     color: #000;
-    background-color: #fcce2d;
+    background-color: #2d42fc;
 }
 .about_bt.active a {
     color: #000;
-    background-color: #fcce2d;
+    background-color: #502dfc;
 }
 
 .quote_bt {
@@ -389,7 +391,7 @@ button {
 
 .quote_bt a:hover {
     color: #030101;
-    background-color: #fcce2d;
+    background-color: #492dfc;
 }
 
 #my_slider a.carousel-control-prev {
@@ -452,7 +454,7 @@ button {
     position: relative;
     width: 40px;
     height: 17px;
-    background-color: #fcce2d;
+    background-color: #372dfc;
     left: 0px;
     right: 0px;
     margin: 0 auto;
@@ -610,7 +612,7 @@ button {
 .plus_text {
     width: 50px;
     height: 50px;
-    background-color: #fcce2d;
+    background-color: #5a2dfc;
     color: #ffffff;
     font-size: 24px;
     display: flex;
@@ -677,7 +679,7 @@ button {
     float: left;
     font-size: 16px;
     color: #ffffff;
-    background-color: #fcce2d;
+    background-color: #312dfc;
     text-align: center;
     padding: 14px;
     border-radius: 40px;
@@ -792,7 +794,7 @@ button {
 #main_slider .carousel-control-next:hover,
 #main_slider .carousel-control-prev:focus,
 #main_slider .carousel-control-next:focus {
-    background: #fcce2d;
+    background: #3b2dfc;
     color: #fff;
 }
 
@@ -837,7 +839,7 @@ button {
 }
 .get_quote_bt a:hover {
     color: #ffffff;
-    background-color: #fcce2d;
+    background-color: #502dfc;
 }
 .dolor_text{
     width: 100%;
@@ -928,7 +930,7 @@ button {
     font-size: 20px;
     color: #151515;
     text-align: center;
-    background-color: #fcce2d;
+    background-color: #532dfc;
     padding: 10px 0px;
     text-transform: uppercase;
     border-radius: 40px;
@@ -955,7 +957,7 @@ button {
     color: #ffffff;
 }
 .call_text a:hover {
-    color: #fcce2d;
+    color: #2d2dfc;
 }
 
 
@@ -991,7 +993,7 @@ button {
     color: #ffffff;
 }
 .footer_menu li a:hover{
-    color: #fcce2d;
+    color: #532dfc;
 }
 
 .information_text {
@@ -1041,7 +1043,7 @@ button {
 }
 
 .copyright_text a:hover {
-    color: #fcce2d;
+    color: #372dfc;
 }
 
 .margin_top_90 {

@@ -33,13 +33,20 @@
       <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
-   <body>
+   <style>
+      .header_section{
+      font-size: 30px; /* Adjust font size for the logo */
+      }
+   </style>
       <!--header section start -->
-      <div class="header_section">
-         <div class="header_bg">
-            <div class="container">
-               <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <a class="logo" href="{% url 'home_page' %}"><img src="/static/images/logo.png"></a>
+      
+      <body>
+         <!--header section start -->
+         <div class="header_section">
+            <div class="header_bg">
+               <div class="container">
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                     <a class="" href="{% url 'home_page' %}">ECourse</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -103,77 +110,31 @@
       <!-- services section start -->
       <div class="services_section layout_padding">
          <div class="container">
-             <h1 class="services_taital"><span style="color: #fcce2d">Our</span> Courses</h1>
-             <div class="services_section_2">
-                 <div class="row">
-                     {% for i in data %}
-                     <div class="col-md-6">
-                         <div class="image_main">
-                             <img src="{{i.image.url}}" class="image_8" style="width:100%">
-                             <div class="text_main">
-                                 <div class="seemore_text"><a class="text-decoration-none text-danger"  href="{% url 'course_details' i.id %}">{{i.name}}</a></div>
-                                 <div class="seemore_text">Category: {{i.category}}</div>
-                                 <div class="seemore_text">Description: {{i.description | truncatewords:5}}</div>
-                             </div>
-                         </div>
+            
+             <h1 class="services_taital"><span style="color:">Our</span> Courses</h1>
+             
+             <div class="container">
+               
+               <div class="row">
+                 {% for i in data %}
+                 <div class="col-md-4">
+                   <div class="card" style="width: 20rem;">
+                     <img src="{{ i.image.url }}" class="card-img-top" alt="...">
+                     <div class="card-body">
+                       <h5 class="card-title">{{ i.name }}</h5>
+                       <p class="card-text">{{ i.job }}</p>
+                       <a href="{% url 'course_details' i.id %}" class="btn btn-primary">Details</a>
                      </div>
-                     {% if forloop.counter|divisibleby:2 %}
+                   </div>
                  </div>
-                 <div class="row">
-                     {% endif %}
-                     {% endfor %}
-                 </div>
+                 {% endfor %}
+               </div>
              </div>
          </div>
      </div>
       <!-- services section end -->
       <!-- footer section start -->
-      <div class="footer_section layout_padding margin_top_90">
-         <div class="container">
-            <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-            <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
-            <div class="footer_section_2">
-               <div class="row">
-                  <div class="col-lg-3 col-md-6 margin_top">
-                     <div class="call_text"><a href="#"><img src="/static/images/call-icon1.png"><span class="padding_left_15">Call Now +01 9876543210</span></a></div>
-                     <div class="call_text"><a href="#"><img src="/static/images/mail-icon1.png"><span class="padding_left_15">demo@gmail.com</span></a></div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                     <div class="information_main">
-                        <h4 class="information_text">Information</h4>
-                        <p class="many_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                     <div class="information_main">
-                        <h4 class="information_text">Helpful Links</h4>
-                        <div class="footer_menu">
-                           <ul>
-                              <li><a href="{% url 'home_page' %}">Home</a></li>
-                              <li><a href="{% url 'aboutus' %}">About</a></li>
-                              <li><a href="{% url 'service' %}">Services</a></li>
-                              <li><a href="{% url 'blog' %}">Blog</a></li>
-                              
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                     <div class="information_main">
-                        <div class="footer_logo"><a href="index.html"><img src="/static/images/footer-logo.png"></a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- footer section end -->
-      <!-- copyright section start -->
-      <div class="copyright_section">
-         <div class="container">
-            <p class="copyright_text">© 2020 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></p>
-         </div>
-      </div>
+      {% include 'footer.html' %}
       <!-- copyright section end -->
       <!-- Javascript files-->
       <script src="/static/js/jquery.min.js"></script>

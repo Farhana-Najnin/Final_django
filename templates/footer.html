@@ -1,7 +1,7 @@
  <!-- footer section start -->
  <div class="footer_section layout_padding">
     <div class="container">
-       <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+       <div class="subscribe_bt"><a href="{% url 'home_page' %}">Subscribe</a></div>
        <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
        <div class="footer_section_2">
           <div class="row">
@@ -9,12 +9,7 @@
                 <div class="call_text"><a href="#"><img src="/static/images/call-icon1.png"><span class="padding_left_15">Call Now +01 9876543210</span></a></div>
                 <div class="call_text"><a href="#"><img src="/static/images/mail-icon1.png"><span class="padding_left_15">demo@gmail.com</span></a></div>
              </div>
-             <div class="col-lg-3">
-                <div class="information_main">
-                   <h4 class="information_text">Information</h4>
-                   <p class="many_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
-                </div>
-             </div>
+             
              <div class="col-lg-3 col-md-6">
                 <div class="information_main">
                    <h4 class="information_text">Helpful Links</h4>
@@ -30,9 +25,25 @@
                 </div>
              </div>
              <div class="col-lg-3">
+               <div class="information_main">
+                  <h4 class="information_text">More</h4>
+                  <p class="many_text">Press
+                     Investors
+                     Terms
+                     Privacy
+                     Help
+                     Accessibility
+                     Contact
+                     Articles
+                     Directory
+                   </p>
+               </div>
+            </div>
+             <div class="col-lg-3">
                 <div class="information_main">
-                   <div class="footer_logo"><a href="index.html"><img src="/static/images/footer-logo.png"></a></div>
-                </div>
+    <div class="information_text"><a href="{% url 'home_page' %}" style="color: white;">ECourse</a></div>
+</div>
+
              </div>
           </div>
        </div>
@@ -42,7 +53,7 @@
  <!-- copyright section start -->
  <div class="copyright_section">
     <div class="container">
-       <p class="copyright_text">© 2020 All Rights Reserved. <a href="#">Farhana Najnin Mahi</a></p>
+       <p class="copyright_text">© 2024 All Rights Reserved. <a href="#">Farhana Najnin Mahi</a></p>
     </div>
  </div>
  <!-- copyright section end -->
