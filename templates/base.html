@@ -13,6 +13,9 @@
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
+      <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet" />
       <!-- owl carousel style -->
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css" />
       <!-- bootstrap css -->
@@ -25,8 +28,12 @@
       <link rel="icon" href="/static/images/fevicon.png" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="/static/css/jquery.mCustomScrollbar.min.css">
+      
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+
       <!-- fonts -->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap" rel="stylesheet">
       <!-- owl stylesheets --> 
@@ -34,18 +41,20 @@
       <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
-   <style>
+   <!-- <style>
       .header_sec {
       font-size: 30px; /* Adjust font size for the logo */
       }
-   </style>
+   </style> -->
+   <!-- manage_course -->
    <body>
       <!--header section start -->
-      
+      <div class="header_section">
+         <div class="header_bg">
       
             <div class="container">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <a class=".header_sec" href="{% url 'home_page' %}">ECourse</a>
+                  <a class=".header_sec" style="font-size: 30px;" href="{% url 'home_page' %}">ECourse</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -57,9 +66,7 @@
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'aboutus' %}">About</a>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="{% url 'service' %}">Services</a>
-                        </li>
+                        
                         
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'showcourses' %}">Courses</a>
@@ -68,20 +75,34 @@
                            <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
                         </li>
                         {% if request.user.is_authenticated %}
+                           {% if request.user.account.account_type == 'Teacher' %}
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'add_course' %}">Add course</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'manage_course' %}">Manage course</a>
+                              </li>
+                           {% else %}
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'profile' %}">Enrolled Course</a>
+                              </li>
+                           {% endif %}
+                        
+                        
                         <li class="nav-item">
-                           <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                           <a class="nav-link" href="{% url 'password_change_page' %}">Change password</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="{% url 'password_change_page' %}">Change password</a>
-                        </li>
                         {% else %}
                         <li class="nav-item">
-                           <li class="nav-item">
-                              <a class="nav-link" href="{% url 'blog' %}">Blog</a>
-                           </li>
+                           <a class="nav-link" href="{% url 'service' %}">Services</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                        </li>
+                        <li class="nav-item">
                            <a class="nav-link" href="{% url 'login' %}">LogIn</a>
                         </li>
                         <li class="nav-item">
@@ -90,19 +111,11 @@
                         {% endif %}  
                      </ul>
                      
-
-                     <!-- <div class="call_section">
-                        <ul>
-                           <li><a href="#"><img src="/static/images/fb-icon.png"></a></li>
-                           <li><a href="#"><img src="/static/images/twitter-icon.png"></a></li>
-                           <li><a href="#"><img src="/static/images/linkedin-icon.png"></a></li>
-                           <li><a href="#"><img src="/static/images/instagram-icon.png"></a></li>
-                           <div class="donate_bt"><a href="#"><img src="/static/images/search-icon.png"></a></div>
-                        </ul>
-                     </div> -->
                   </div>
                </nav>
             </div>
+         </div>
+      </div>
     {% block content %} 
     
     {% endblock %}

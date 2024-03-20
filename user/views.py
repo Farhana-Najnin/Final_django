@@ -24,44 +24,8 @@ from django.contrib.auth import get_user_model
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 from .models import UserAccount
+from django.contrib.auth.decorators import login_required
 
-
-# Create your views here.
-
-# class SignUpFormView(CreateView):
-#     template_name = 'signup.html'
-#     form_class = SignupForm
-#     success_url=reverse_lazy('login.html')
-
-#     def form_valid(self,form):
-#         print(form.cleaned_data)
-#         user = form.save()
-#         login(self.request, user)
-#         print(user)
-#         return super().form_valid(form) # form_valid function call hobe jodi sob thik thake
-   
-# class SignUpFormView(CreateView):
-#     template_name = 'signup.html'
-#     form_class = SignupForm
-
-#     def form_valid(self, form):
-#         user = form.save(commit=False)
-#         user.is_active = False  # User is inactive until email verification
-#         user.save()
-
-#         current_site = get_current_site(self.request)
-#         subject = 'Activate your account'
-#         message = render_to_string('activation_email.html', {
-#             'user': user,
-#             'domain': current_site.domain,
-#             'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-#             'token': default_token_generator.make_token(user),
-#             })
-
-#         user.email_user(subject, message)
-
-#         messages.success(self.request, 'Account created successfully. Please check your email to activate your account.')
-#         return redirect('login')
 class SignUpFormView(CreateView):
     template_name = 'signup.html'
     form_class = SignupForm
@@ -70,8 +34,14 @@ class SignUpFormView(CreateView):
         user = form.save(commit=False)
         user.is_active = False  # User is inactive until email verification
         user.save()
+        account_type = form.cleaned_data.get('account_type')
+        print(account_type)
+        # Create a UserAccount instance and associate it with the user
+        UserAccount.objects.create(
+            user=user,
+            account_type=account_type,
+        )
 
-    
         token = default_token_generator.make_token(user)
     
         uid = urlsafe_base64_encode(force_bytes(user.pk))
@@ -84,6 +54,8 @@ class SignUpFormView(CreateView):
         email.attach_alternative(email_body, "text/html")
         email.send()
         messages.success(self.request, 'Account created successfully. Please check your email to activate your account.')
+        
+        
         return redirect('login')
 class ActivationView(View):
     def get(self, request, uidb64, token):
@@ -100,20 +72,10 @@ class ActivationView(View):
             return redirect('login')
         else:
             return HttpResponseBadRequest('Activation link is invalid or has expired.')
-# class LoginView(FormView):
-#     template_name = 'login.html'
-#     form_class = LoginForm
+        
 
-#     def form_valid(self, form):
-#         username = form.cleaned_data['username']
-#         password = form.cleaned_data['password']
-#         user = authenticate(self.request, username=username, password=password)
-#         if user is not None:
-#             login(self.request, user)
-#             return super().form_valid(form)
-#         else:
-#             form.add_error(None, 'Invalid username or password')
-#             return self.form_invalid(form)
+
+
 
 
 class LoginFormView(LoginView):
@@ -196,3 +158,10 @@ class PasswordUpdateView(View):
 #     else:
 #         messages.error(request, 'You arenot authorize for return book')
 #     return redirect('profile')
+        
+
+@login_required
+def manage_course(request):
+    data = courses.objects.filter(author = request.user)
+    # print(data)
+    return render(request, 'manage_course.html', {'data' : data})

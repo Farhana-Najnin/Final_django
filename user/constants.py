@@ -1,6 +1,6 @@
 ACCOUNTTYPE = (
-    ('Student', 'student'),
-    ('Teacher', 'teacher'),
+    ('Student', 'Student'),
+    ('Teacher', 'Teacher'),
 )
 GENDERTYPE = (
     ('Male', 'Male'),

@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+{% block content %} 
+
+{% load static %}
+<div class="container">
+    {% if data|length == 0 %}
+    <h2 class="text-center mt-5 mb-4 font-weight-bold">You don't post any Course</h2>
+    {% endif %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for i in data %}
+        <div class="col">
+            <div class="card shadow my-2" style="height: 30rem;">
+                <div class="text-center">
+                    {% if i.image %}
+                    <img src="{{ i.image.url }}" class="card-img-top" style="height: 180px; object-fit: cover;" alt="{{ i.title }}">
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-center">{{ i.name }}</h4>
+                    <p class="card-text">{{ i.description | truncatechars:50 }}</p>
+                    <p class="text-center mb-1">Author: <span class="text-muted">{{ i.author }}</span></p>
+                    <p class="text-center mb-2">Category: 
+                        {% for category in i.category.all %}
+                            <span class="badge bg-info">{{ category.category_name }}</span>
+                        {% endfor %}
+                    </p>
+                    <div class="text-center">
+                        <a href="{% url 'edit_course' i.id %}" class="btn btn-warning me-2">Edit</a>
+                        <a href="{% url 'delete_course' i.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+

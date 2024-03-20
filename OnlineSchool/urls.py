@@ -34,7 +34,7 @@ urlpatterns = [
     path('categories/<slug:category_slug>/', views.showCourses, name='category'),
     path('course_category/',include('Category.urls')),
     path('user/',include('user.urls')),
-
+    
     path('Courses/',include('Courses.urls')),
     # path('transactions/',include('transactions.urls')),
 ]

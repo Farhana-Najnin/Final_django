@@ -1,0 +1,55 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block content%}
+
+ 
+
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger mt-2" role="alert">
+            <strong>Error!</strong> {{ error }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="font-bold text-center pb-5">COURSE Information</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for hidden_field in form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                {% endfor %}
+                <div class="row mb-6">
+                    <div class="col-md-12">
+                        
+                        {% for field in form %}
+                    <div class="mb-3">
+                        {% if field.errors %}
+                        <ul class="errorlist">
+                            {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {{ field.label_tag }} {{ field }}
+                    </div>
+                    {% endfor %}
+                    </div>
+                    
+                </div>
+                
+                <div class="row mb-6">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

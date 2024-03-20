@@ -1,3 +1,5 @@
+{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -65,14 +67,25 @@
                            <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
                         </li>
                         {% if request.user.is_authenticated %}
+                           {% if request.user.account.account_type == 'Teacher' %}
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'add_course' %}">Add course</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'manage_course' %}">Manage course</a>
+                              </li>
+                           {% else %}
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'profile' %}">Enrolled Course</a>
+                              </li>
+                           {% endif %}
+                        
+                        
                         <li class="nav-item">
-                           <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                           <a class="nav-link" href="{% url 'password_change_page' %}">Change password</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="{% url 'password_change_page' %}">Change password</a>
                         </li>
                         {% else %}
                         <li class="nav-item">
@@ -90,16 +103,6 @@
                         {% endif %}  
                      </ul>
                      
-
-                     <!-- <div class="call_section">
-                        <ul>
-                           <li><a href="#"><img src="/static/images/fb-icon.png"></a></li>
-                           <li><a href="#"><img src="/static/images/twitter-icon.png"></a></li>
-                           <li><a href="#"><img src="/static/images/linkedin-icon.png"></a></li>
-                           <li><a href="#"><img src="/static/images/instagram-icon.png"></a></li>
-                           <div class="donate_bt"><a href="#"><img src="/static/images/search-icon.png"></a></div>
-                        </ul>
-                     </div> -->
                   </div>
                </nav>
             </div>
@@ -190,8 +193,14 @@
                <img src="{{ i.image.url }}" class="card-img-top" alt="...">
                <div class="card-body">
                  <h5 class="card-title">{{ i.name }}</h5>
-                 <p class="card-text">{{ i.job }}</p>
-                 <a href="{% url 'course_details' i.id %}" class="btn btn-primary">Details</a>
+                 <!-- <p class="card-text">{{ i.job }}</p> -->
+                 {% if request.user.is_authenticated %}
+                
+                  <a href="{% url 'course_details' i.id %}" class="btn btn-primary">Details</a>
+                 {%else%}
+                  <a href="{% url 'login' %}" class="btn btn-primary">Details</a>
+                {% endif %}
+                 
                </div>
              </div>
            </div>

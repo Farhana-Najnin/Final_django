@@ -4,4 +4,4 @@ from .models import courses,Enroll
 
 admin.site.register(courses)
 admin.site.register(Enroll)
-# admin.site.register(comment)
+

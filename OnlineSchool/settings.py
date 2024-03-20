@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Category',
     'Courses',
     'user', 
+
     'crispy_forms',
     'crispy_bootstrap5',
     
