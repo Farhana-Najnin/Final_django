@@ -62,25 +62,40 @@
                            <a class="nav-link" href="{% url 'aboutus' %}">About</a>
                         </li>
                         
+                        
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'showcourses' %}">Courses</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="{% url 'contactus' %}">Contact </a>
+                           <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
                         </li>
                         {% if request.user.is_authenticated %}
+                           {% if request.user.account.account_type == 'Teacher' %}
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'add_course' %}">Add course</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'manage_course' %}">Manage course</a>
+                              </li>
+                           {% else %}
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'profile' %}">Enrolled Course</a>
+                              </li>
+                           {% endif %}
+                        
+                        
                         <li class="nav-item">
-                           <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                           <a class="nav-link" href="{% url 'password_change_page' %}">Change password</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="{% url 'password_change_page' %}">Change password</a>
-                        </li>
                         {% else %}
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'service' %}">Services</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'login' %}">LogIn</a>
